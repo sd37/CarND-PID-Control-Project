@@ -62,7 +62,7 @@ Kp = 0.12. This is the propotional controller parameter. From the lectures this 
 Kd = 0.0015. This is the differential control parameter which reduces the oscillation around the baseline further. The derivative ensures that we makei smoother swings as we approach closer to the baseline. Again started of by using 0.004 in the lectures, settled on 0.0015 which IMO produced best results.
 
 
-Ki = 2.0. This is the integral control and sums all the ctes over time. This parameter takes of the bias care created if the wheels of the vehicles are not aligned properly. Intially choose to 3.0 as given in the lectures. This caused the wheels to go slightly off the track sometimes. Selected 2.0 which keeps the car on the track all the time.
+Ki = 2.0. This is the integral control and sums all the ctes over time. This parameter takes care of the bias created if the wheels of the vehicles are not aligned properly. Intially choose to 3.0 as given in the lectures. This caused the wheels to go slightly off the track sometimes. Selected 2.0 which keeps the car on the track all the time.
 
 
 More information is only accessible by people who are already enrolled in Term 2
