@@ -1,46 +1,54 @@
 #ifndef PID_H
 #define PID_H
 
+#include <jmorecfg.h>
+
 class PID {
 public:
-  /*
-  * Errors
-  */
-  double p_error;
-  double i_error;
-  double d_error;
+    boolean is_intialized;
+    double total_error;
+    int N;
 
-  /*
-  * Coefficients
-  */ 
-  double Kp;
-  double Ki;
-  double Kd;
+    /*
+    * Errors
+    */
+    double p_error;
+    double i_error;
+    double d_error;
 
-  /*
-  * Constructor
-  */
-  PID();
+    /*
+    * Coefficients
+    */
+    double Kp;
+    double Ki;
+    double Kd;
 
-  /*
-  * Destructor.
-  */
-  virtual ~PID();
+    /*
+    * Constructor
+    */
+    PID();
 
-  /*
-  * Initialize PID.
-  */
-  void Init(double Kp, double Ki, double Kd);
+    /*
+    * Destructor.
+    */
+    virtual ~PID();
 
-  /*
-  * Update the PID error variables given cross track error.
-  */
-  void UpdateError(double cte);
+    /*
+    * Initialize PID.
+    */
+    void Init(double Kp, double Ki, double Kd);
 
-  /*
-  * Calculate the total PID error.
-  */
-  double TotalError();
+    /*
+    * Update the PID error variables given cross track error.
+    */
+    void UpdateError(double cte);
+
+    /*
+    * Calculate the total PID error.
+    */
+    double TotalError();
+
+    double ComputeSteerValue();
 };
 
 #endif /* PID_H */
