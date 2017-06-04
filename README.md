@@ -51,6 +51,28 @@ Please (do your best to) stick to [Google's C++ style guide](https://google.gith
 Note: regardless of the changes you make, your project must be buildable using
 cmake and make!
 
+## Choosing Parameters
+
+First of all, I wanted to use twiddle inorder to find the paramaters. But it turns out that it would require opening a separate connection and then
+after finding the parameters you have to run the original simulation. This would have required a lot of refactoring so I manually tuned the parameter.
+
+Kp = 0.12. This is the propotional controller parameter. From the lectures this was 0.2. I reduced it to 0.12 so that the swings towards the reference were
+
+a little smooth. This reduced the oscillation and didn't comprise the time to lower the cte.
+
+
+Kd = 0.0015. This is the differential control parameter which reduces the oscillation around the baseline further. The derivate ensures that we make
+
+smoother swings as we approach closer to the baseline. Again started of by using 0.004 in the lectures, settled on 0.0015 which IMO produced best results.
+
+
+Ki = 2.0. This is the integral control and sums all the ctes over time. This parameter takes of the bias care created if the wheels of the vehicles are not aligned 
+
+properly. Intially choose to 3.0 as given in the lectures. This caused the wheels to go slightly off the track sometimes. Selected 2.0 which keeps the car on the
+
+track all the time.
+
+
 More information is only accessible by people who are already enrolled in Term 2
 of CarND. If you are enrolled, see [the project page](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/f1820894-8322-4bb3-81aa-b26b3c6dcbaf/lessons/e8235395-22dd-4b87-88e0-d108c5e5bbf4/concepts/6a4d8d42-6a04-4aa6-b284-1697c0fd6562)
 for instructions and the project rubric.
